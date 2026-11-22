@@ -141,7 +141,9 @@ main{max-width:1320px}#googlePanel{padding:13px 18px}#googlePanel>p.muted:first-
 .grid-action-buttons .danger-action{background:#a82c37}.grid-action-buttons .secondary-action{background:#617382}
 .time-busy.own-appointment{cursor:pointer;outline-offset:-2px}
 .time-busy.own-appointment:hover,.time-busy.own-appointment:focus-visible{outline:2px solid #0d548e;background:#b7d7fa}
-.time-cancelled{position:absolute;left:4px;right:4px;width:calc(100% - 8px);z-index:5;background:#eef4e8;color:#465c39;border:1px dashed #8dab79;margin:0;padding:2px 4px;height:23px;min-height:23px;overflow:hidden;text-align:left;font-size:10px;opacity:.95}
+.time-cancelled{position:absolute;left:4px;right:4px;width:calc(100% - 8px);z-index:5;pointer-events:none;background:#eef4e8;color:#465c39;border:1px dashed #8dab79;margin:0;padding:2px 36px 2px 4px;height:23px;min-height:23px;overflow:hidden;text-align:left;font-size:10px;opacity:.95}
+.time-restore{position:absolute;right:4px;width:32px;height:22px;min-height:22px;padding:0;z-index:6;background:#536d50;color:#fff;border:1px solid #7d9b71;border-radius:4px;font-size:15px;line-height:18px;cursor:pointer}
+.time-restore:hover,.time-restore:focus-visible{background:#325130;outline:2px solid #fff;outline-offset:-2px}
 @media(max-width:720px){
  #mobileTabs{grid-template-columns:repeat(3,minmax(0,1fr))}
  .grid-action-buttons button{min-width:calc(50% - 8px);min-height:45px}
@@ -158,7 +160,7 @@ main{max-width:1320px}#googlePanel{padding:13px 18px}#googlePanel>p.muted:first-
 .time-busy.own-appointment:hover,.time-busy.own-appointment:focus-visible{outline:3px solid #1a435f!important;outline-offset:-3px;filter:saturate(1.08)}
 /* Editing allows all fields, including patient details and procedure. */
 #writeForm.is-moving #writeContactBlock{display:block!important}
-</style></head><body data-mobile-more="availability" data-mobile-tab="calendar"><header><h1>🦷 South Dental Calendar</h1><div>Δοκιμαστική έκδοση • v38.11</div></header><main><div class="panel warning" id="trialBanner"><span class="full-warning"><strong>Μόνο για δοκιμές.</strong> Μην καταχωρείτε πραγματικά στοιχεία ασθενών ή ιατρικές σημειώσεις. Οι δοκιμαστικοί αριθμοί και τα δεδομένα αποθηκεύονται μόνο σε αυτόν τον browser και δεν συγχρονίζονται.</span><span class="mobile-warning"><strong>Δοκιμαστική έκδοση:</strong> όχι πραγματικά στοιχεία ασθενών.</span></div><nav aria-label="Επιλογές εργαλείων" id="mobileMoreNav"><button data-more="availability" type="button">Άδεια</button><button data-more="google" type="button">Google</button><button data-more="print" type="button">Εκτύπωση</button><button data-more="backup" type="button">Backup</button></nav><section class="panel" id="googlePanel"><h2>Σύνδεση Google</h2><p class="muted">Μία σύνδεση για Google Calendar και Google Contacts (μόνο δοκιμαστικά δεδομένα).</p><button id="googleConnect" type="button">Σύνδεση Google — Ημερολόγιο &amp; Επαφές</button><button hidden="" id="googleDisconnect" style="background:#687786" type="button">Αποσύνδεση Google</button><p class="muted" id="googleStatus" role="status">Δεν έχει πραγματοποιηθεί σύνδεση Google.</p><div id="googleCalendars"></div></section><section class="panel" id="calendarPanel"><h2 class="calendar-title">Πρόγραμμα ραντεβού</h2><button class="mobile-google-jump" id="mobileGoogleJump" type="button">Google: σύνδεση / ρυθμίσεις</button><p class="muted">Ημέρα ή Εβδομάδα • Πάτησε διαθέσιμη ώρα για νέο ραντεβού.</p><div class="nav"><button aria-label="Προηγούμενη ημέρα" id="prev">‹</button><strong id="dayLabel"></strong><button aria-label="Επόμενη ημέρα" id="next">›</button></div><label for="view">Προβολή</label><select id="view"><option value="day">Ημέρα</option><option value="week">Εβδομάδα</option></select><p class="muted" id="googleGridStatus">Συνδέσου με Google για να εμφανιστούν οι δεσμευμένες ώρες.</p>
+</style></head><body data-mobile-more="availability" data-mobile-tab="calendar"><header><h1>🦷 South Dental Calendar</h1><div>Δοκιμαστική έκδοση • v38.12</div></header><main><div class="panel warning" id="trialBanner"><span class="full-warning"><strong>Μόνο για δοκιμές.</strong> Μην καταχωρείτε πραγματικά στοιχεία ασθενών ή ιατρικές σημειώσεις. Οι δοκιμαστικοί αριθμοί και τα δεδομένα αποθηκεύονται μόνο σε αυτόν τον browser και δεν συγχρονίζονται.</span><span class="mobile-warning"><strong>Δοκιμαστική έκδοση:</strong> όχι πραγματικά στοιχεία ασθενών.</span></div><nav aria-label="Επιλογές εργαλείων" id="mobileMoreNav"><button data-more="availability" type="button">Άδεια</button><button data-more="google" type="button">Google</button><button data-more="print" type="button">Εκτύπωση</button><button data-more="backup" type="button">Backup</button></nav><section class="panel" id="googlePanel"><h2>Σύνδεση Google</h2><p class="muted">Μία σύνδεση για Google Calendar και Google Contacts (μόνο δοκιμαστικά δεδομένα).</p><button id="googleConnect" type="button">Σύνδεση Google — Ημερολόγιο &amp; Επαφές</button><button hidden="" id="googleDisconnect" style="background:#687786" type="button">Αποσύνδεση Google</button><p class="muted" id="googleStatus" role="status">Δεν έχει πραγματοποιηθεί σύνδεση Google.</p><div id="googleCalendars"></div></section><section class="panel" id="calendarPanel"><h2 class="calendar-title">Πρόγραμμα ραντεβού</h2><button class="mobile-google-jump" id="mobileGoogleJump" type="button">Google: σύνδεση / ρυθμίσεις</button><p class="muted">Ημέρα ή Εβδομάδα • Πάτησε διαθέσιμη ώρα για νέο ραντεβού.</p><div class="nav"><button aria-label="Προηγούμενη ημέρα" id="prev">‹</button><strong id="dayLabel"></strong><button aria-label="Επόμενη ημέρα" id="next">›</button></div><label for="view">Προβολή</label><select id="view"><option value="day">Ημέρα</option><option value="week">Εβδομάδα</option></select><p class="muted" id="googleGridStatus">Συνδέσου με Google για να εμφανιστούν οι δεσμευμένες ώρες.</p>
 <div class="grid-calendar-tools">
 <label for="calendarSearch">Αναζήτηση ραντεβού με επώνυμο ή όνομα</label>
 <input aria-controls="calendarSearchResults" autocomplete="off" id="calendarSearch" placeholder="π.χ. TEST ή ΠΑΠΑΔΟ" type="search"/>
@@ -220,7 +222,7 @@ function buildTimeboard(from,days,items,blocks){
   for(const g of (window.sdGoogleBusy||[]).filter(x=>x.date===ds))busy.push({start:mins(g.time),end:mins(g.end),title:g.own?g.label:'Δεσμευμένο · Google',sub:g.allDay?'Ολοήμερο':g.time+'–'+g.end,kind:'google',own:g.own,eventId:g.eventId,procedure:g.procedure||''});
   for(const b of blocks.filter(x=>matchesBlock(x,ds)))busy.push({start:b.all?OPEN:mins(b.start),end:b.all?CLOSE:mins(b.end),title:'Κλειστό · '+b.reason,sub:b.all?'Όλη μέρα':b.start+'–'+b.end,kind:'blocked'});
   for(const e of items.filter(x=>x.date===ds))busy.push({start:mins(e.time),end:mins(e.end||clock(mins(e.time)+60)),title:e.patient,sub:e.time+'–'+(e.end||clock(mins(e.time)+60)),kind:'local'});
-  for(let t=OPEN;t<CLOSE;t+=15){const taken=busy.some(b=>b.start<t+15&&b.end>t);if(taken)continue;const slot=document.createElement('button');slot.type='button';slot.className='time-free';slot.style.top=((t-OPEN)/15*STEP+1)+'px';slot.style.height=(STEP-2)+'px';slot.textContent=t%60===0?clock(t)+' · Διαθέσιμο':'';slot.title=clock(t)+'–'+clock(t+15)+' · Διαθέσιμο';slot.setAttribute('aria-label',ds+' '+clock(t)+' διαθέσιμο — νέο ραντεβού');const startTime=t;slot.onclick=()=>{const f=$('writeForm');if(f.hidden){alert('Συνδέσου πρώτα με Google.');$('googlePanel').scrollIntoView({behavior:'smooth'});return;}$('writeDate').value=ds;$('writeStart').value=clock(startTime);const remaining=(()=>{let end=startTime+15;while(end<CLOSE&&!busy.some(b=>b.start<end+15&&b.end>end))end+=15;return end-startTime})();$('writeDuration').value=String([60,45,30,15].find(n=>n<=remaining)||15);$('writeStart').dispatchEvent(new Event('change'));$('writeDuration').dispatchEvent(new Event('change'));window.sdShowNewAppointment ? window.sdShowNewAppointment() : $('writePanel').scrollIntoView({behavior:'smooth',block:'start'})};track.append(slot)}
+  for(let t=OPEN;t<CLOSE;t+=15){const taken=busy.some(b=>b.start<t+15&&b.end>t);if(taken)continue;const slot=document.createElement('button');slot.type='button';slot.className='time-free';slot.style.top=((t-OPEN)/15*STEP+1)+'px';slot.style.height=(STEP-2)+'px';slot.textContent=t%60===0?clock(t)+' · Διαθέσιμο':'';slot.title=clock(t)+'–'+clock(t+15)+' · Διαθέσιμο';slot.setAttribute('aria-label',ds+' '+clock(t)+' διαθέσιμο — νέο ραντεβού');const startTime=t;slot.onclick=()=>{const f=$('writeForm');if(f.hidden){alert('Συνδέσου πρώτα με Google.');$('googlePanel').scrollIntoView({behavior:'smooth'});return;}window.sdResetGoogleBookingForm?.();$('writeDate').value=ds;$('writeStart').value=clock(startTime);const remaining=(()=>{let end=startTime+15;while(end<CLOSE&&!busy.some(b=>b.start<end+15&&b.end>end))end+=15;return end-startTime})();$('writeDuration').value=String([60,45,30,15].find(n=>n<=remaining)||15);$('writeStart').dispatchEvent(new Event('change'));$('writeDuration').dispatchEvent(new Event('change'));window.sdShowNewAppointment ? window.sdShowNewAppointment() : $('writePanel').scrollIntoView({behavior:'smooth',block:'start'})};track.append(slot)}
   for(const b of busy){const st=Math.max(OPEN,b.start),en=Math.min(CLOSE,b.end);if(en<=st)continue;const el=document.createElement('div');el.className='time-busy'+(b.kind==='blocked'?' blocked':'');el.style.top=((st-OPEN)/15*STEP+1)+'px';el.style.height=Math.max(20,(en-st)/15*STEP-2)+'px';const a=document.createElement('span');a.className='busy-title';a.textContent=b.title;const sub=document.createElement('span');sub.className='busy-sub';sub.textContent=b.sub;el.title=b.title+' · '+b.sub;el.append(a,sub);
    if(b.kind==='google'&&b.own&&b.eventId){
     el.classList.add('own-appointment','procedure-'+procedureCode(b.procedure));el.tabIndex=0;el.setAttribute('role','button');
@@ -232,11 +234,22 @@ function buildTimeboard(from,days,items,blocks){
    track.append(el)}
   for(const g of (window.sdGoogleCancelled||[]).filter(x=>x.date===ds)){
    if(!g.own||!g.eventId)continue;
-   const st=Math.max(OPEN,mins(g.time));const el=document.createElement('button');el.type='button';el.className='time-cancelled';
+   const st=Math.max(OPEN,mins(g.time)),en=Math.min(CLOSE,mins(g.end));
+   // The old cancelled booking is a visual note, never an occupied slot.
+   // Do not show it on top of a newer booking or a calendar exclusion.
+   if(busy.some(b=>b.start<en&&b.end>st))continue;
+   const el=document.createElement('div');el.className='time-cancelled';
    el.style.top=((st-OPEN)/15*STEP+1)+'px';
-   el.textContent='↶ Ακυρωμένο: '+g.label;
-   el.setAttribute('aria-label','Επαναφορά ακυρωμένου ραντεβού '+g.label);
-   el.onclick=()=>window.sdOpenGridAppointment?.(g.eventId);track.append(el);
+   el.textContent='Ακυρωμένο: '+g.label;
+   el.title='Η ώρα είναι διαθέσιμη για νέο ραντεβού';
+   track.append(el);
+   // Only this compact icon restores; pressing the cancelled label books anew.
+   const restore=document.createElement('button');restore.type='button';restore.className='time-restore';
+   restore.style.top=((st-OPEN)/15*STEP+1)+'px';
+   restore.textContent='↶';restore.title='Επαναφορά ακυρωμένου ραντεβού';
+   restore.setAttribute('aria-label','Επαναφορά ακυρωμένου ραντεβού '+g.label);
+   restore.onclick=()=>window.sdOpenGridAppointment?.(g.eventId);
+   track.append(restore);
   }
   board.append(track)
  }
@@ -370,6 +383,7 @@ function reset(){
  $('writeSave').hidden=false;$('writeSave').textContent='Αποθήκευση ραντεβού';
  $('writeCancel').hidden=true;
 }
+window.sdResetGoogleBookingForm=reset;
 
 function off(){
  token=null;loaded=[];$('writeForm').hidden=true;
@@ -526,7 +540,10 @@ $('writeForm').onsubmit=async ev=>{
   const contactMessage=contactResult.state==='created'?'Δημιουργήθηκε και η νέα επαφή Google.':contactResult.state==='exists'?'Η επαφή υπήρχε ήδη και δεν δημιουργήθηκε διπλότυπο.':'Δεν δημιουργήθηκε επαφή επειδή δεν δόθηκε τηλέφωνο.';
   status('✓ '+(id?'Οι αλλαγές αποθηκεύτηκαν στο ίδιο ραντεβού.':'Το ραντεβού αποθηκεύτηκε.')+' '+contactMessage+' Έτοιμο για νέα καταχώριση.');
   window.sdRefreshGoogle?.();await load();
-  if(id){if(window.matchMedia('(max-width:720px)').matches)window.sdMobileTab?.('new');$('writeScheduleStart').scrollIntoView({behavior:'smooth',block:'start'});}
+  // After successful new booking OR edit, return to the top of the application.
+  // On phones show the programme tab rather than leaving the cleared form open.
+  if(window.matchMedia('(max-width:720px)').matches)window.sdMobileTab?.('calendar');
+  requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'smooth'}));
  }catch(err){
   const partial=contactResult?.state==='created'?' Η επαφή δημιουργήθηκε στη Google, αλλά το ραντεβού ΔΕΝ επιβεβαιώθηκε. Έλεγξε το Calendar πριν επαναλάβεις.':'';
   status('Δεν ολοκληρώθηκε η αποθήκευση: '+err.message+partial);
